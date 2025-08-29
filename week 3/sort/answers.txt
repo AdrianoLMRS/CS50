@@ -1,0 +1,11 @@
+sort1 uses: Bubble sort
+
+How do you know?: Bubble sort performs better in sorted lists.  Compared to sort3 in sorted50000.txt, the sort1 was 1.937s faster.  So, the conclusion is that "Bubble sort" is better than "Selection sort" in sorted lists.
+
+sort2 uses: Merge sort
+
+How do you know?: Best performance in ramdom10000.txt (0.05s)
+
+sort3 uses: Selection sort
+
+How do you know?: Performed worst than sort1 (Bubble sort) in sorted lists.

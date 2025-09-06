@@ -1,0 +1,3 @@
+1. Their Audio Aura could be categorized based on the energy, valence, and danceability of each song. For example, a track with higher energy and danceability might reflect a happier mood.
+
+2. A better approach could be collecting feedback directly from the user. For instance, after a song finishes, a menu could appear asking: “Which emotion did you identify with while listening to this track?” with multiple options to choose from. Another option would be to include more variables instead of relying only on three.

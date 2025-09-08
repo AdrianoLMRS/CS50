@@ -1,0 +1,5 @@
+10 HTML tags: <meta>, <link>, <main>, <div>, <a>, <img>, <header>, <footer>, <p>, <h1>.
+
+5 CSS properties: margin, padding, font-family, font-size, display.
+
+How you chose to use JavaScript and Bootstrap: I used Bootstrap for styling (e.g., navbar, cards, footer etc.) and JavaScript for a simple alert in index.html, as well as Bootstrap’s built-in carousel.

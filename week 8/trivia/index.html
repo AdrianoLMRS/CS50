@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="./style.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <!-- Question 1 -->
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const section = document.querySelector("#q-1");
+                const buttons = section.querySelectorAll("button");
+
+                // create feedback element
+                const feedback = document.createElement("p");
+                feedback.style.fontWeight = "bold";
+                section.appendChild(feedback);
+
+                buttons.forEach(button => {
+                    button.addEventListener("click", () => {
+                    // reset styles
+                    buttons.forEach(btn => {
+                        btn.style.backgroundColor = "";
+                    });
+
+                    // Correct/Incorrect feedback
+                    if (button.dataset.correct !== undefined) {
+                        button.style.backgroundColor = "green";
+                        feedback.textContent = "Correct!";
+                        feedback.style.color = "green";
+                    } else {
+                        button.style.backgroundColor = "red";
+                        feedback.textContent = "Incorrect";
+                        feedback.style.color = "red";
+                    }
+                    });
+                });
+            });
+        </script>
+        <!-- Question 2 -->
+         <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const input = document.querySelector("#input-q2");
+                const button = document.querySelector("#submit-q2");
+                const section = document.querySelector("#q-2");
+
+                // create feedback element
+                const feedback = document.createElement("p");
+                feedback.style.fontWeight = "bold";
+                section.appendChild(feedback);
+
+                button.addEventListener("click", () => {
+                    const answer = input.value.trim().toLowerCase();
+
+                    if (answer === "squirtle") { // correct answer
+                        input.style.border = "2px solid green";
+                        feedback.textContent = "Correct!";
+                        feedback.style.color = "green";
+                    } else {
+                        input.style.border = "2px solid red";
+                        feedback.textContent = "Incorrect";
+                        feedback.style.color = "red";
+                    }
+                });
+            });
+         </script>
+         <style>
+            body { text-align: center };
+            button { cursor: pointer; };
+         </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div id="q-1" class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>In Pokémon FireRed, what are the three available starter Pokémon?</h3>
+                <button type="button">Pikachu, Eevee, Jigglypuff</button>
+                <button data-correct type="button">Bulbasaur, Charmander, Squirtle</button>
+                <button type="button">Snorlax, Psyduck, Abra</button>
+                <button type="button">Mew, Doduo, Ditto</button>
+            </div>
+
+            <div id="q-2" class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>What is the best Pokémon?</h3>
+                <input type="text" id="input-q2" placeholder="Your answer here">
+                <button type="button" id="submit-q2">Submit</button>
+            </div>
+        </div>
+    </body>
+</html>

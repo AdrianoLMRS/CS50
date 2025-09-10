@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Stock Information
+{% endblock %}
+
+{% block main %}
+    <h1 class="mb-4">Stock {{ name }}</h1>
+    <div class="d-flex justify-content-center">
+        <table class="table table-bordered w-50">
+            <tr>
+                <th scope="row">Name</th>
+                <td>{{ name }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Price</th>
+                <td>{{ price | usd }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Symbol</th>
+                <td>{{ symbol }}</td>
+            </tr>
+        </table>
+    </div>
+    <a class="btn btn-primary" href="/buy?stock={{symbol.upper()}}">Buy this stock</a>
+    <a class="btn btn-primary" href="/quote">Look up another stock</a>
+{% endblock %}

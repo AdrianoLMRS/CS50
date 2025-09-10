@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy Stock
+{% endblock %}
+
+{% block main %}
+    <h1>Buy a stock</h1>
+    <form action="/buy" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" id="shareInput" autofocus class="form-control mx-auto w-auto" name="symbol" placeholder="Symbol" type="text" required>
+        </div>
+        <div class="mb-3">
+            <input
+            type="number"
+            name="shares"
+            class="form-control mx-auto w-auto"
+            placeholder="Shares"
+            autocomplete="off"
+            min="1" value=1 step="1"
+            required>
+        </div>
+        <button class="btn btn-primary" type="submit">Buy</button>
+    </form>
+
+    <script defer>
+        // Get ?stock param
+        const params = new URLSearchParams(window.location.search);
+        const stockParam = params.get("stock");
+
+        if (stockParam) {
+            const input = document.getElementById("shareInput");
+            if (input) input.value = String(stockParam);
+        };
+    </script>
+{% endblock %}

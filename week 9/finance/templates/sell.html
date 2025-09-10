@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell your stocks
+{% endblock %}
+
+{% block main %}
+    <h1 class="mb-4 text-center">Sell Stocks</h1>
+    <form action="/sell" method="post" class="text-center">
+        <div class="mb-3">
+            <select
+                name="symbol"
+                class="form-select w-auto mx-auto"
+                required>
+                <option value="" disabled selected>Choose a stock</option>
+                {% for row in symbols %}
+                    <option value="{{ row.stockSymbol }}">
+                        {{ row.stockSymbol }} - {{ row.price | usd }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <input
+                type="number"
+                name="shares"
+                class="form-control w-auto mx-auto text-center"
+                placeholder="Shares"
+                autocomplete="off"
+                min="1"
+                value="1"
+                step="1"
+                required>
+        </div>
+        <button class="btn btn-primary px-4" type="submit">Sell</button>
+    </form>
+{% endblock %}
+

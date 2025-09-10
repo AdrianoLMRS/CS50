@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History of Transactions
+{% endblock %}
+
+{% block main %}
+    <h1 class="mb-4 text-center">History</h1>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered align-middle text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Shares</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in purchases %}
+                    <tr>
+                        <td>{{ row["stockSymbol"] }}</td>
+                        <td>{{ row["numShares"] }}</td>
+                        <td>{{ row["price"] | usd }}</td>
+                        <td>{{ row["date"] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

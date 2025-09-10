@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your Portfolio
+{% endblock %}
+
+{% block main %}
+<h1 style="padding-bottom: 25px;">Your stocks</h1>
+<table class="table table-striped table-hover table-bordered align-middle text-center">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">Symbol</th>
+            <th scope="col">Price</th>
+            <th scope="col">Shares</th>
+            <th scope="col">Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in database %}
+        <tr>
+            <td>{{ row["stockSymbol"] }}</td>
+            <td>{{ row["price"] | usd }}</td>
+            <td>{{ row["shares"] }}</td>
+            <td>{{ (row["shares"] * row["price"]) | usd }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot class="table-secondary fw-bold">
+        <tr>
+            <td colspan="3" class="text-end">Cash Remaining: &emsp;</td>
+            <td>{{ cash | usd }}</td>
+        </tr>
+    </tfoot>
+</table>
+
+<nav class="mb-4">
+    <ul class="nav nav-pills justify-content-center gap-2">
+        <li class="nav-item">
+            <a class="nav-link text-decoration-underline" href="/quote">Look up a stock</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-decoration-underline" href="/buy">Buy a stock</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-decoration-underline" href="/sell">Sell a stock</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-decoration-underline" href="/history">See your transactions</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-decoration-underline" href="/cash">Add cash</a>
+        </li>
+    </ul>
+</nav>
+{% endblock %}
